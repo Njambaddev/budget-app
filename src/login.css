@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap');
+
+.auth {
+  --ink: #0E2740; --blue: #2F5D8C; --salmon: #E8A598; --mist: #EEF3F9; --paper: #FFFFFF;
+  --line: #D3DDE8; --text: #17283A; --muted: #5B6D80; --danger: #B3382F;
+  --display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+  --body: 'Figtree', 'Segoe UI', system-ui, sans-serif;
+  min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column;
+  background: var(--paper); color: var(--text); font: 16px/1.5 var(--body);
+}
+.auth *, .auth *::before, .auth *::after { box-sizing: border-box; }
+
+/* brand banner: full-width band, content aligned to the form column */
+.auth-hero {
+  position: relative; overflow: hidden; background: var(--ink); color: #fff; padding: 0 20px;
+  background-image: repeating-radial-gradient(circle at 100% 0%, transparent 0 74px, rgba(255,255,255,.055) 74px 75px);
+}
+.auth-hero-in { position: relative; max-width: 400px; height: 200px; margin: 0 auto; }
+.auth .brand { display: flex; align-items: center; gap: 12px; font: 700 20px/1 var(--display); letter-spacing: -0.01em; }
+.auth .brand svg { display: block; }
+.auth-hero .brand { padding-top: 24px; }
+.auth-bars { position: absolute; left: 0; right: 0; bottom: 0; height: 110px; display: flex; align-items: flex-end; gap: 6px; }
+.auth-bars i {
+  flex: 1; height: calc(var(--h) * 1%); border-radius: 8px 8px 0 0; background: var(--c);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.12) inset;
+  transform-origin: bottom; animation: auth-rise .8s cubic-bezier(.2,.7,.2,1) backwards; animation-delay: calc(var(--n) * 55ms);
+}
+@keyframes auth-rise { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+
+/* form side */
+.auth-side { flex: 1; display: flex; align-items: flex-start; justify-content: center; padding: 36px 20px 48px; }
+.auth-panel { width: 100%; max-width: 400px; }
+.auth h2 { margin: 0 0 6px; font: 700 34px/1.1 var(--display); letter-spacing: -0.025em; color: var(--ink); }
+.auth-sub { margin: 0 0 28px; color: var(--muted); }
+.auth-formerror { margin: 0 0 18px; padding: 10px 14px; border-radius: 10px; background: #FBEDEB; border: 1px solid #F0C9C4; color: var(--danger); font-size: 14px; }
+
+.auth-field { display: grid; gap: 6px; margin-bottom: 18px; }
+.auth-field label { font-weight: 600; font-size: 14px; }
+.auth-control { position: relative; }
+.auth input[type=text], .auth input[type=email], .auth input[type=password] {
+  width: 100%; height: 48px; padding: 0 14px; font: inherit; color: var(--text); background: var(--paper);
+  border: 1px solid var(--line); border-radius: 10px; transition: border-color .15s, box-shadow .15s;
+}
+.auth input::placeholder { color: #94A3B4; }
+.auth input:hover { border-color: #B5C4D4; }
+.auth input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 4px rgba(47, 93, 140, .16); }
+.auth input[aria-invalid=true] { border-color: var(--danger); }
+.auth input[aria-invalid=true]:focus { box-shadow: 0 0 0 4px rgba(179, 56, 47, .14); }
+.auth .has-toggle { padding-right: 64px !important; }
+.auth-toggle { position: absolute; right: 6px; top: 6px; height: 36px; padding: 0 10px; border: 0; border-radius: 8px; background: none; color: var(--blue); font: 600 14px var(--body); cursor: pointer; }
+.auth-toggle:hover { background: var(--mist); }
+.auth-hint { font-size: 13px; color: var(--muted); }
+.auth-err { font-size: 13px; color: var(--danger); }
+
+.auth-remember { display: flex; align-items: center; gap: 10px; margin: 4px 0 22px; font-size: 15px; cursor: pointer; }
+.auth-remember input { width: 18px; height: 18px; margin: 0; accent-color: var(--blue); }
+
+.auth-btn { width: 100%; height: 50px; border: 0; border-radius: 10px; background: var(--ink); color: #fff; font: 700 16px var(--body); cursor: pointer; transition: background .15s, transform .05s; }
+.auth-btn:hover { background: var(--blue); }
+.auth-btn:active { transform: translateY(1px); }
+.auth-btn:disabled { background: var(--blue); cursor: default; }
+.auth :is(.auth-btn, .auth-toggle, .auth-link):focus-visible { outline: 3px solid var(--salmon); outline-offset: 2px; }
+
+.auth-switch { margin: 24px 0 0; text-align: center; color: var(--muted); }
+.auth-link { background: none; border: 0; padding: 0; font: 700 16px var(--body); color: var(--blue); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.auth-link:hover { color: var(--ink); }
+
+@media (prefers-reduced-motion: reduce) { .auth-bars i { animation: none; } }

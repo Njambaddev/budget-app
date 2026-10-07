@@ -1,0 +1,5 @@
+body { margin: 0; background: #f5f7fa; }
+.page { max-width: 1280px; margin: 0 auto; padding: 24px 16px 48px; }
+.page-head { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+.page-head h2 { margin: 0; }
+.ant-table-summary td { font-weight: 600; background: #eef3f9 !important; }
